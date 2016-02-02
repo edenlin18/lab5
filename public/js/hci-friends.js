@@ -10,6 +10,18 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
+
+	$(".friendName").click(nameClick);
+}
+
+function nameClick(e) {
+  // Cancel the default action, which prevents the page from reloading
+    e.preventDefault();
+
+    // In an event listener, $(this) is the leement that fired the event
+    var name = $(this).find("h3").text();
+    var anaName = anagrammedName(name);
+    $(this).find("h3").text(anaName);
 }
 
 function anagrammedName(name) {
